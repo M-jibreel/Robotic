@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almoktashif Robotic Arcade 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        :root {
+            --neon-blue: #00f2fe;
+            --dark-bg: #0a0b1e;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+
+        .neon-border {
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .neon-border:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+        }
+
+        #sim-canvas {
+            background: radial-gradient(circle, #1a1c3a 0%, #0a0b1e 100%);
+            border-radius: 0.75rem;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .control-btn:active {
+            background: var(--neon-blue);
+            color: #000;
+        }
+
+        .video-overlay {
+            background: linear-gradient(to top, rgba(10, 11, 30, 0.9) 0%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-950">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center">
+                <i class="fas fa-robot text-white"></i>
+            </div>
+            <span class="font-orbitron font-bold text-xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                MIS ARCADE 2026
+            </span>
+        </div>
+        <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest">
+            <a href="#home" class="hover:text-cyan-400 transition">Home</a>
+            <a href="#cinema" class="hover:text-cyan-400 transition">Cinema</a>
+            <a href="#simulator" class="hover:text-cyan-400 transition">Simulator</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Video -->
+        <div class="absolute inset-0 z-0">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-40">
+                <source src="Campus +LOGO.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center lg:text-left grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="inline-block py-1 px-4 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-bold tracking-widest font-orbitron">
+                    ALMOKTASHIF INTERNATIONAL SCHOOL
+                </div>
+                <h1 class="font-orbitron text-5xl md:text-7xl font-bold leading-tight">
+                    Robotic <span class="text-cyan-400">Future</span> <br> Is Here
+                </h1>
+                <p class="text-slate-300 text-lg max-w-lg mx-auto lg:mx-0">
+                    Experience the next generation of student innovation. Explore our autonomous builds and interactive simulations for the 2026 season.
+                </p>
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                    <a href="#cinema" class="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold py-3 px-8 rounded-full transition-all flex items-center gap-2">
+                        <i class="fas fa-play"></i> WATCH CINEMA
+                    </a>
+                    <a href="#simulator" class="border border-white/20 hover:bg-white/5 py-3 px-8 rounded-full transition-all">
+                        TRY SIMULATOR
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cinema Gallery -->
+    <section id="cinema" class="py-24 px-6 bg-slate-900/20">
+        <div class="container mx-auto">
+            <div class="mb-16">
+                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-2">Event <span class="text-cyan-400">Cinema</span></h2>
+                <p class="text-slate-400">Hover over the screens to preview the 2026 builds.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Video 1: Scorpion -->
+                <div class="neon-border  rounded-xl overflow-hidden group relative">
+                    <video loop muted  playsinline class="w-full aspect-video object-cover" onmouseover="this.play()" onmouseout="this.pause()">
+                        <source src="scorpion_00.mp4" type="video/mp4">
+                    </video>
+                    <div class="p-6 pointer-events-none video-overlay absolute inset-0 flex flex-col justify-end opacity-100 group-hover:bg-slate-950/40 transition">
+                        <h4 class="font-orbitron font-bold text-lg">The Scorpion 2.0</h4>
+                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                            Advanced multi-leg locomotion system using LEGO Prime hardware.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Video 2: Bounce Ball -->
+                <div class="neon-border rounded-xl overflow-hidden group relative">
+                    <video loop muted playsinline class="w-full aspect-video object-cover" onmouseover="this.play()" onmouseout="this.pause()">
+                        <source src="bounce_ball_00.mp4" type="video/mp4">
+                    </video>
+                    <div class="p-6 pointer-events-none video-overlay absolute inset-0 flex flex-col justify-end">
+                        <h4 class="font-orbitron font-bold text-lg">Bounce Ball Bot</h4>
+                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                            Spherical drive system for 360-degree maneuverability and obstacle avoidance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Video 3: Student -->
+                <div class="neon-border rounded-xl overflow-hidden group relative">
+                    <video loop muted  playsinline class="w-full aspect-video object-cover" onmouseover="this.play()" onmouseout="this.pause()">
+                        <source src="Good_student_Video.mp4" type="video/mp4">
+                    </video>
+                    <div class="p-6 video-overlay pointer-events-none absolute inset-0 flex flex-col justify-end">
+                        <h4 class="font-orbitron font-bold text-lg">Student Showcase</h4>
+                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                            Meet the innovators behind the code at MIS International School.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulator -->
+    <section id="simulator" class="py-24 px-6">
+        <div class="container mx-auto">
+            <div class="grid lg:grid-cols-3 gap-12 items-start">
+                <div class="space-y-6">
+                    <h2 class="font-orbitron text-4xl font-bold">2026 <span class="text-cyan-400">Sim</span></h2>
+                    <p class="text-slate-400">Control the virtual rover using the on-screen buttons or Arrow Keys. Collect the golden orbs to win.</p>
+                    
+                    <div class="bg-slate-900/50 p-6 rounded-2xl border border-white/5 space-y-6">
+                        <div class="flex flex-col items-center gap-2">
+                            <button class="control-btn" id="btn-up"><i class="fas fa-arrow-up"></i></button>
+                            <div class="flex gap-2">
+                                <button class="control-btn" id="btn-left"><i class="fas fa-arrow-left"></i></button>
+                                <button class="control-btn" id="btn-down"><i class="fas fa-arrow-down"></i></button>
+                                <button class="control-btn" id="btn-right"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-xs font-orbitron text-cyan-400">
+                            <span>SCORE: <span id="sim-score">0</span></span>
+                            <span>GOAL: 5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 bg-slate-900 p-2 rounded-2xl border border-white/10 relative">
+                    <canvas id="sim-canvas" class="w-full h-[500px]"></canvas>
+                    <div id="sim-overlay" class="absolute inset-0 flex items-center justify-center bg-slate-950/90 hidden z-20">
+                        <div class="text-center">
+                            <h3 class="text-4xl font-orbitron font-bold text-cyan-400 mb-4">MISSION COMPLETE</h3>
+                            <button onclick="resetSim()" class="bg-cyan-500 text-black px-8 py-2 rounded-full font-bold">RESTART</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-sm">
+        <p>Almoktashif International School (MIS) © 2026 Arcade Experience</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('sim-canvas');
+        const ctx = canvas.getContext('2d');
+        const scoreEl = document.getElementById('sim-score');
+        const overlay = document.getElementById('sim-overlay');
+
+        let robot = { x: 100, y: 100, angle: 0, speed: 0, size: 30 };
+        let goal = { x: 300, y: 300, size: 20 };
+        let score = 0;
+        let keys = {};
+        let active = true;
+
+        function init() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+            spawnGoal();
+            requestAnimationFrame(loop);
+        }
+
+        function spawnGoal() {
+            goal.x = 50 + Math.random() * (canvas.width - 100);
+            goal.y = 50 + Math.random() * (canvas.height - 100);
+        }
+
+        function resetSim() {
+            score = 0;
+            scoreEl.innerText = score;
+            overlay.classList.add('hidden');
+            active = true;
+            robot.x = 100; robot.y = 100;
+            spawnGoal();
+        }
+
+        window.addEventListener('keydown', e => keys[e.code] = true);
+        window.addEventListener('keyup', e => keys[e.code] = false);
+
+        const setupBtn = (id, code) => {
+            const btn = document.getElementById(id);
+            btn.onmousedown = () => keys[code] = true;
+            btn.onmouseup = () => keys[code] = false;
+            btn.ontouchstart = (e) => { e.preventDefault(); keys[code] = true; };
+            btn.ontouchend = () => keys[code] = false;
+        };
+        setupBtn('btn-up', 'ArrowUp');
+        setupBtn('btn-down', 'ArrowDown');
+        setupBtn('btn-left', 'ArrowLeft');
+        setupBtn('btn-right', 'ArrowRight');
+
+        function loop() {
+            if (!active) return;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Logic
+            if (keys['ArrowUp']) robot.speed = 4;
+            else if (keys['ArrowDown']) robot.speed = -3;
+            else robot.speed *= 0.9;
+
+            if (keys['ArrowLeft']) robot.angle -= 0.1;
+            if (keys['ArrowRight']) robot.angle += 0.1;
+
+            robot.x += Math.cos(robot.angle) * robot.speed;
+            robot.y += Math.sin(robot.angle) * robot.speed;
+
+            // Bounds
+            robot.x = Math.max(0, Math.min(canvas.width, robot.x));
+            robot.y = Math.max(0, Math.min(canvas.height, robot.y));
+
+            // Goal detection
+            const dist = Math.hypot(robot.x - goal.x, robot.y - goal.y);
+            if (dist < 35) {
+                score++;
+                scoreEl.innerText = score;
+                spawnGoal();
+                if (score >= 5) {
+                    active = false;
+                    overlay.classList.remove('hidden');
+                }
+            }
+
+            // Draw Goal
+            ctx.shadowBlur = 15; ctx.shadowColor = '#fbbf24';
+            ctx.fillStyle = '#fbbf24';
+            ctx.beginPath(); ctx.arc(goal.x, goal.y, goal.size, 0, Math.PI * 2); ctx.fill();
+
+            // Draw Robot
+            ctx.save();
+            ctx.translate(robot.x, robot.y);
+            ctx.rotate(robot.angle);
+            ctx.shadowColor = '#06b6d4';
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(-15, -15, 30, 30);
+            ctx.fillStyle = '#06b6d4';
+            ctx.beginPath(); ctx.moveTo(10, -5); ctx.lineTo(20, 0); ctx.lineTo(10, 5); ctx.fill();
+            ctx.restore();
+
+            requestAnimationFrame(loop);
+        }
+
+        window.onload = init;
+        window.onresize = () => {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        };
+    </script>
+</body>
+</html>

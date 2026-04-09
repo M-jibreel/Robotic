@@ -76,7 +76,7 @@
         <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest">
             <a href="#home" class="hover:text-cyan-400 transition">Home</a>
             <a href="#cinema" class="hover:text-cyan-400 transition">Cinema</a>
-            <a href="#simulator" class="hover:text-cyan-400 transition">Simulator</a>
+            <a href="#arcade" class="hover:text-cyan-400 transition">Arcade</a>
         </div>
     </nav>
 
@@ -105,8 +105,8 @@
                     <a href="#cinema" class="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold py-3 px-8 rounded-full transition-all flex items-center gap-2">
                         <i class="fas fa-play"></i> WATCH CINEMA
                     </a>
-                    <a href="#simulator" class="border border-white/20 hover:bg-white/5 py-3 px-8 rounded-full transition-all">
-                        TRY SIMULATOR
+                    <a href="#arcade" class="border border-white/20 hover:bg-white/5 py-3 px-8 rounded-full transition-all">
+                        ENTER ARCADE
                     </a>
                 </div>
             </div>
@@ -290,39 +290,144 @@
         </div>
     </section>
 
-    <!-- Simulator -->
-    <section id="simulator" class="py-24 px-6">
-        <div class="container mx-auto">
-            <div class="grid lg:grid-cols-3 gap-12 items-start">
-                <div class="space-y-6">
-                    <h2 class="font-orbitron text-4xl font-bold">2026 <span class="text-cyan-400">Sim</span></h2>
-                    <p class="text-slate-400">Control the virtual rover using the on-screen buttons or Arrow Keys. Collect the golden orbs to win.</p>
+    <!-- Virtual Arcade -->
+    <section id="arcade" class="py-24 px-6 relative">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-4">VIRTUAL <span class="text-cyan-400">ARCADE</span></h2>
+                <p class="text-slate-400">Test the logic simulating our physical projects directly in your browser.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8 bg-slate-950/80 border border-white/10 rounded-2xl p-4 md:p-8 shadow-2xl">
+                
+                <!-- Game Selector -->
+                <div class="w-full lg:w-1/3 flex flex-col gap-3">
+                    <h3 class="text-slate-500 font-orbitron text-sm uppercase mb-2 pl-2">Select Program</h3>
                     
-                    <div class="bg-slate-900/50 p-6 rounded-2xl border border-white/5 space-y-6">
-                        <div class="flex flex-col items-center gap-2">
-                            <button class="control-btn" id="btn-up"><i class="fas fa-arrow-up"></i></button>
-                            <div class="flex gap-2">
-                                <button class="control-btn" id="btn-left"><i class="fas fa-arrow-left"></i></button>
-                                <button class="control-btn" id="btn-down"><i class="fas fa-arrow-down"></i></button>
-                                <button class="control-btn" id="btn-right"><i class="fas fa-arrow-right"></i></button>
+                    <button onclick="openGame('space')" id="tab-space" class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-purple-500/20 border-l-4 border-purple-500 text-white">
+                        <i data-lucide="rocket" class="text-purple-500"></i>
+                        <div>
+                            <div class="font-bold font-orbitron">Space Vibe</div>
+                            <div class="text-xs opacity-70">Avoid celestial objects</div>
+                        </div>
+                    </button>
+
+                    <button onclick="openGame('soccer')" id="tab-soccer" class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400">
+                        <i data-lucide="shield-alert"></i>
+                        <div>
+                            <div class="font-bold font-orbitron">Arduino Defend</div>
+                            <div class="text-xs opacity-70">Keeper simulation</div>
+                        </div>
+                    </button>
+
+                    <button onclick="openGame('snake')" id="tab-snake" class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400">
+                        <i data-lucide="git-commit"></i>
+                        <div>
+                            <div class="font-bold font-orbitron">Cyber Snake</div>
+                            <div class="text-xs opacity-70">Grid-logic traversal</div>
+                        </div>
+                    </button>
+
+                    <button onclick="openGame('rps')" id="tab-rps" class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400">
+                        <i data-lucide="bot"></i>
+                        <div>
+                            <div class="font-bold font-orbitron">Vision RPS</div>
+                            <div class="text-xs opacity-70">Vs AI Logic</div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Game Display Area -->
+                <div class="w-full lg:w-2/3 bg-slate-900 rounded-xl border border-white/10 flex items-center justify-center p-4 min-h-[600px] relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-50 z-0"></div>
+                    <div class="relative z-10 w-full h-full flex flex-col items-center justify-center">
+                        
+                        <!-- Space Vibe Content -->
+                        <div id="game-space" class="game-content flex flex-col items-center w-full">
+                            <div class="flex justify-between w-full max-w-[400px] mb-4">
+                                <span class="font-orbitron text-sm text-purple-400">SCORE:<span id="space-score">0</span></span>
+                                <span class="text-xs text-slate-400">MOUSE TO DODGE</span>
+                            </div>
+                            <div class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-purple-500/20">
+                                <canvas id="space-canvas" width="400" height="500" class="bg-slate-950 cursor-none"></canvas>
+                                <div id="space-gameover" class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center z-10">
+                                    <span class="text-purple-500 font-orbitron text-xl mb-4">HULL BREACH</span>
+                                    <button onclick="resetSpaceVibe()" class="px-6 py-2 bg-purple-500/20 border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-black font-bold transition-all">RESTART</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex justify-between text-xs font-orbitron text-cyan-400">
-                            <span>SCORE: <span id="sim-score">0</span></span>
-                            <span>GOAL: 5</span>
+
+                        <!-- Arduino Soccer Defense -->
+                        <div id="game-soccer" class="game-content hidden flex-col items-center w-full">
+                            <div class="flex justify-between w-full max-w-[400px] mb-4">
+                                <span class="font-orbitron text-sm text-cyan-400">SAVES:<span id="soccer-score">0</span></span>
+                                <span class="font-orbitron text-sm text-red-500">LIVES:<span id="soccer-lives">❤️❤️❤️</span></span>
+                            </div>
+                            <div class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-cyan-500/20 bg-green-900/20">
+                                <canvas id="soccer-canvas" width="400" height="500" class="cursor-none"></canvas>
+                                <div id="soccer-gameover" class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center z-10">
+                                    <span class="text-red-500 font-orbitron text-xl mb-4">GAME OVER</span>
+                                    <button onclick="resetSoccerDefense()" class="px-6 py-2 bg-cyan-500/20 border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black font-bold transition-all">TRY AGAIN</button>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Cyber Snake -->
+                        <div id="game-snake" class="game-content hidden flex-col items-center w-full">
+                            <div class="flex justify-between w-full max-w-[400px] mb-4">
+                                <span class="font-orbitron text-sm text-cyan-400">SCORE:<span id="snake-score">0</span></span>
+                                <span class="text-xs text-slate-400">USE ARROW KEYS</span>
+                            </div>
+                            <div class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-cyan-500/20">
+                                <canvas id="snake-canvas" width="400" height="400" class="bg-slate-950"></canvas>
+                                <div id="snake-gameover" class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center">
+                                    <span class="text-red-500 font-orbitron text-xl mb-4">SYSTEM FAILURE</span>
+                                    <button onclick="resetSnake()" class="px-6 py-2 bg-cyan-500/20 border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black font-bold transition-all">REBOOT</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vision RPS -->
+                        <div id="game-rps" class="game-content hidden flex-col items-center justify-center h-full text-center p-4 w-full">
+                            <h3 class="text-2xl font-orbitron text-cyan-400 mb-8">Man vs Machine</h3>
+                            
+                            <div class="flex justify-between w-full max-w-md mb-8">
+                                <div class="flex flex-col items-center">
+                                    <span class="text-sm text-slate-400 mb-2 font-orbitron">PLAYER</span>
+                                    <span id="rps-score-player" class="text-4xl font-bold text-cyan-400 font-orbitron">0</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-sm text-slate-400 mb-2 font-orbitron">AI VISION</span>
+                                    <span id="rps-score-ai" class="text-4xl font-bold text-purple-500 font-orbitron">0</span>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-center items-center gap-8 mb-8 text-6xl">
+                                <div id="rps-choice-player" class="w-24 h-24 flex items-center justify-center bg-slate-800 rounded-xl border border-cyan-500 shadow-[0_0_15px_rgba(34,211,238,0.3)]">
+                                    ❓
+                                </div>
+                                <div class="text-3xl flex items-center text-slate-500 font-bold font-orbitron">VS</div>
+                                <div id="rps-choice-ai" class="w-24 h-24 flex items-center justify-center bg-slate-800 rounded-xl border border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                                    ❓
+                                </div>
+                            </div>
+
+                            <div class="h-8 mb-8">
+                                <span id="rps-result" class="text-xl font-bold tracking-widest text-yellow-400 font-orbitron">
+                                    AWAITING INPUT
+                                </span>
+                            </div>
+
+                            <div class="flex justify-center gap-4">
+                                <button onclick="playRPS('Rock')" class="bg-slate-800 hover:bg-slate-700 text-4xl p-4 rounded-xl border border-slate-600 hover:border-cyan-400 transition-all hover:scale-110">✊</button>
+                                <button onclick="playRPS('Paper')" class="bg-slate-800 hover:bg-slate-700 text-4xl p-4 rounded-xl border border-slate-600 hover:border-cyan-400 transition-all hover:scale-110">✋</button>
+                                <button onclick="playRPS('Scissors')" class="bg-slate-800 hover:bg-slate-700 text-4xl p-4 rounded-xl border border-slate-600 hover:border-cyan-400 transition-all hover:scale-110">✌️</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <div class="lg:col-span-2 bg-slate-900 p-2 rounded-2xl border border-white/10 relative">
-                    <canvas id="sim-canvas" class="w-full h-[500px]"></canvas>
-                    <div id="sim-overlay" class="absolute inset-0 flex items-center justify-center bg-slate-950/90 hidden z-20">
-                        <div class="text-center">
-                            <h3 class="text-4xl font-orbitron font-bold text-cyan-400 mb-4">MISSION COMPLETE</h3>
-                            <button onclick="resetSim()" class="bg-cyan-500 text-black px-8 py-2 rounded-full font-bold">RESTART</button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -331,109 +436,388 @@
         <p>Almoktashif International School (MIS) © 2026 Arcade Experience</p>
     </footer>
 
+    <!-- Lucide Icons Setup -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        const canvas = document.getElementById('sim-canvas');
-        const ctx = canvas.getContext('2d');
-        const scoreEl = document.getElementById('sim-score');
-        const overlay = document.getElementById('sim-overlay');
+        lucide.createIcons();
 
-        let robot = { x: 100, y: 100, angle: 0, speed: 0, size: 30 };
-        let goal = { x: 300, y: 300, size: 20 };
-        let score = 0;
-        let keys = {};
-        let active = true;
-
-        function init() {
-            canvas.width = canvas.parentElement.clientWidth;
-            canvas.height = canvas.parentElement.clientHeight;
-            spawnGoal();
-            requestAnimationFrame(loop);
-        }
-
-        function spawnGoal() {
-            goal.x = 50 + Math.random() * (canvas.width - 100);
-            goal.y = 50 + Math.random() * (canvas.height - 100);
-        }
-
-        function resetSim() {
-            score = 0;
-            scoreEl.innerText = score;
-            overlay.classList.add('hidden');
-            active = true;
-            robot.x = 100; robot.y = 100;
-            spawnGoal();
-        }
-
-        window.addEventListener('keydown', e => keys[e.code] = true);
-        window.addEventListener('keyup', e => keys[e.code] = false);
-
-        const setupBtn = (id, code) => {
-            const btn = document.getElementById(id);
-            btn.onmousedown = () => keys[code] = true;
-            btn.onmouseup = () => keys[code] = false;
-            btn.ontouchstart = (e) => { e.preventDefault(); keys[code] = true; };
-            btn.ontouchend = () => keys[code] = false;
+        // Game Tab Switching Logic
+        const tabColors = {
+            'space': ['bg-purple-500/20', 'border-purple-500', 'text-white'],
+            'soccer': ['bg-cyan-500/20', 'border-cyan-500', 'text-white'],
+            'snake': ['bg-cyan-500/20', 'border-cyan-500', 'text-white'],
+            'rps': ['bg-yellow-500/20', 'border-yellow-500', 'text-white']
         };
-        setupBtn('btn-up', 'ArrowUp');
-        setupBtn('btn-down', 'ArrowDown');
-        setupBtn('btn-left', 'ArrowLeft');
-        setupBtn('btn-right', 'ArrowRight');
+        const iconColors = {
+            'space': 'text-purple-500',
+            'soccer': 'text-cyan-500',
+            'snake': 'text-cyan-500',
+            'rps': 'text-yellow-500'
+        };
 
-        function loop() {
-            if (!active) return;
-            
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        function openGame(gameId) {
+            // Stop active games
+            stopSpaceVibe();
+            stopSoccerDefense();
+            stopSnake();
 
-            // Logic
-            if (keys['ArrowUp']) robot.speed = 4;
-            else if (keys['ArrowDown']) robot.speed = -3;
-            else robot.speed *= 0.9;
-
-            if (keys['ArrowLeft']) robot.angle -= 0.1;
-            if (keys['ArrowRight']) robot.angle += 0.1;
-
-            robot.x += Math.cos(robot.angle) * robot.speed;
-            robot.y += Math.sin(robot.angle) * robot.speed;
-
-            // Bounds
-            robot.x = Math.max(0, Math.min(canvas.width, robot.x));
-            robot.y = Math.max(0, Math.min(canvas.height, robot.y));
-
-            // Goal detection
-            const dist = Math.hypot(robot.x - goal.x, robot.y - goal.y);
-            if (dist < 35) {
-                score++;
-                scoreEl.innerText = score;
-                spawnGoal();
-                if (score >= 5) {
-                    active = false;
-                    overlay.classList.remove('hidden');
+            // Reset tabs
+            document.querySelectorAll('.game-tab').forEach(tab => {
+                tab.className = 'game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400';
+                const icon = tab.querySelector('svg') || tab.querySelector('i');
+                if (icon) {
+                    Object.values(iconColors).forEach(c => icon.classList.remove(c));
                 }
+            });
+
+            // Activate chosen tab
+            const activeTab = document.getElementById(`tab-${gameId}`);
+            activeTab.className = `game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 border-l-4 ${tabColors[gameId].join(' ')}`;
+            const activeIcon = activeTab.querySelector('svg') || activeTab.querySelector('i');
+            if (activeIcon) {
+                activeIcon.classList.add(iconColors[gameId]);
             }
 
-            // Draw Goal
-            ctx.shadowBlur = 15; ctx.shadowColor = '#fbbf24';
-            ctx.fillStyle = '#fbbf24';
-            ctx.beginPath(); ctx.arc(goal.x, goal.y, goal.size, 0, Math.PI * 2); ctx.fill();
+            // Hide all game content
+            document.querySelectorAll('.game-content').forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('flex');
+            });
 
-            // Draw Robot
-            ctx.save();
-            ctx.translate(robot.x, robot.y);
-            ctx.rotate(robot.angle);
-            ctx.shadowColor = '#06b6d4';
-            ctx.fillStyle = '#fff';
-            ctx.fillRect(-15, -15, 30, 30);
-            ctx.fillStyle = '#06b6d4';
-            ctx.beginPath(); ctx.moveTo(10, -5); ctx.lineTo(20, 0); ctx.lineTo(10, 5); ctx.fill();
-            ctx.restore();
+            // Show chosen game content
+            const activeContent = document.getElementById(`game-${gameId}`);
+            activeContent.classList.remove('hidden');
+            activeContent.classList.add('flex');
 
-            requestAnimationFrame(loop);
+            // Start logic
+            if (gameId === 'space') resetSpaceVibe();
+            if (gameId === 'soccer') resetSoccerDefense();
+            if (gameId === 'snake') resetSnake();
         }
 
-        window.onload = init;
-        window.onresize = () => {
-            canvas.width = canvas.parentElement.clientWidth;
-            canvas.height = canvas.parentElement.clientHeight;
+        // --- Space Vibe Logic ---
+        let spaceAnimId;
+        function stopSpaceVibe() { cancelAnimationFrame(spaceAnimId); }
+
+        function resetSpaceVibe() {
+            stopSpaceVibe();
+            document.getElementById('space-gameover').style.display = 'none';
+            const canvas = document.getElementById('space-canvas');
+            const ctx = canvas.getContext('2d');
+            const scoreEl = document.getElementById('space-score');
+            
+            let gameOver = false;
+            let score = 0;
+            scoreEl.innerText = score;
+            const ship = { x: canvas.width / 2, y: canvas.height - 50, width: 30, height: 40 };
+            let asteroids = [];
+            let stars = Array(50).fill().map(() => ({
+                x: Math.random() * canvas.width, y: Math.random() * canvas.height, size: Math.random() * 2, speed: Math.random() * 3 + 1
+            }));
+            let frameCount = 0;
+
+            const handleMouseMove = (e) => {
+                const rect = canvas.getBoundingClientRect();
+                ship.x = e.clientX - rect.left - ship.width / 2;
+                if(ship.x < 0) ship.x = 0;
+                if(ship.x + ship.width > canvas.width) ship.x = canvas.width - ship.width;
+            };
+
+            const handleTouchMove = (e) => {
+                e.preventDefault();
+                const rect = canvas.getBoundingClientRect();
+                ship.x = e.touches[0].clientX - rect.left - ship.width / 2;
+            };
+
+            canvas.onmousemove = handleMouseMove;
+            canvas.addEventListener('touchmove', handleTouchMove, {passive: false});
+
+            function loop() {
+                if(gameOver) return;
+                spaceAnimId = requestAnimationFrame(loop);
+                frameCount++;
+
+                ctx.fillStyle = '#0a0f1a';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = '#fff';
+                stars.forEach(star => {
+                    star.y += star.speed;
+                    if(star.y > canvas.height) { star.y = 0; star.x = Math.random() * canvas.width; }
+                    ctx.beginPath(); ctx.arc(star.x, star.y, star.size, 0, Math.PI*2); ctx.fill();
+                });
+
+                if(frameCount % 30 === 0) {
+                    asteroids.push({
+                        x: Math.random() * (canvas.width - 20),
+                        y: -20,
+                        size: Math.random() * 20 + 10,
+                        speed: Math.random() * 3 + 2 + (score/500)
+                    });
+                }
+
+                ctx.fillStyle = '#a855f7'; 
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = '#a855f7';
+                for(let i = asteroids.length - 1; i >= 0; i--) {
+                    let a = asteroids[i];
+                    a.y += a.speed;
+                    
+                    ctx.beginPath(); ctx.arc(a.x, a.y, a.size, 0, Math.PI*2); ctx.fill();
+
+                    if (a.y + a.size > ship.y && a.y - a.size < ship.y + ship.height &&
+                        a.x + a.size > ship.x && a.x - a.size < ship.x + ship.width) {
+                        gameOver = true;
+                        document.getElementById('space-gameover').style.display = 'flex';
+                    }
+
+                    if(a.y > canvas.height) {
+                        asteroids.splice(i, 1);
+                        score += 10;
+                        scoreEl.innerText = score;
+                    }
+                }
+                ctx.shadowBlur = 0;
+
+                ctx.fillStyle = '#22d3ee'; 
+                ctx.beginPath();
+                ctx.moveTo(ship.x + ship.width/2, ship.y);
+                ctx.lineTo(ship.x + ship.width, ship.y + ship.height);
+                ctx.lineTo(ship.x, ship.y + ship.height);
+                ctx.closePath();
+                ctx.fill();
+                
+                ctx.fillStyle = '#f97316';
+                ctx.beginPath();
+                ctx.arc(ship.x + ship.width/2, ship.y + ship.height + Math.random()*5, 5, 0, Math.PI*2);
+                ctx.fill();
+            }
+            spaceAnimId = requestAnimationFrame(loop);
+        }
+
+        // --- Arduino Soccer Defense Logic ---
+        let soccerAnimId;
+        function stopSoccerDefense() { cancelAnimationFrame(soccerAnimId); }
+
+        function resetSoccerDefense() {
+            stopSoccerDefense();
+            document.getElementById('soccer-gameover').style.display = 'none';
+            const canvas = document.getElementById('soccer-canvas');
+            const ctx = canvas.getContext('2d');
+            const scoreEl = document.getElementById('soccer-score');
+            const livesEl = document.getElementById('soccer-lives');
+            
+            let score = 0;
+            let lives = 3;
+            scoreEl.innerText = score;
+            livesEl.innerText = '❤️'.repeat(lives);
+
+            const paddle = { x: canvas.width / 2 - 40, y: canvas.height - 30, width: 80, height: 15 };
+            let balls = [{ x: canvas.width/2, y: 50, dx: 3, dy: 3, radius: 8 }];
+
+            const handleMouseMove = (e) => {
+                const rect = canvas.getBoundingClientRect();
+                paddle.x = e.clientX - rect.left - paddle.width / 2;
+                if(paddle.x < 0) paddle.x = 0;
+                if(paddle.x + paddle.width > canvas.width) paddle.x = canvas.width - paddle.width;
+            };
+            
+            const handleTouchMove = (e) => {
+                e.preventDefault();
+                const rect = canvas.getBoundingClientRect();
+                paddle.x = e.touches[0].clientX - rect.left - paddle.width / 2;
+            };
+
+            canvas.onmousemove = handleMouseMove;
+            canvas.addEventListener('touchmove', handleTouchMove, {passive:false});
+
+            function loop() {
+                if(lives <= 0) return;
+                soccerAnimId = requestAnimationFrame(loop);
+
+                ctx.fillStyle = 'rgba(10, 20, 15, 0.9)'; 
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+                ctx.lineWidth = 2;
+                ctx.beginPath(); ctx.moveTo(0, canvas.height/2); ctx.lineTo(canvas.width, canvas.height/2); ctx.stroke();
+                ctx.beginPath(); ctx.arc(canvas.width/2, canvas.height/2, 50, 0, Math.PI*2); ctx.stroke();
+
+                balls.forEach((ball, index) => {
+                    ball.x += ball.dx;
+                    ball.y += ball.dy;
+
+                    if(ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) ball.dx *= -1;
+                    if(ball.y - ball.radius < 0) ball.dy *= -1;
+
+                    if(ball.y + ball.radius > paddle.y && ball.y - ball.radius < paddle.y + paddle.height &&
+                       ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
+                        ball.dy = -Math.abs(ball.dy) - 0.2; 
+                        ball.dx += (ball.x - (paddle.x + paddle.width/2)) * 0.1;
+                        score++;
+                        scoreEl.innerText = score;
+                    }
+
+                    if(ball.y + ball.radius > canvas.height) {
+                        balls.splice(index, 1);
+                        lives--;
+                        livesEl.innerText = '❤️'.repeat(lives);
+                        if(lives <= 0) {
+                            document.getElementById('soccer-gameover').style.display = 'flex';
+                        } else {
+                            balls.push({ x: canvas.width/2, y: 50, dx: (Math.random()-0.5)*6, dy: 3, radius: 8 });
+                        }
+                    }
+
+                    ctx.fillStyle = '#fff';
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = '#22d3ee';
+                    ctx.beginPath(); ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI*2); ctx.fill();
+                    ctx.shadowBlur = 0;
+                });
+
+                ctx.fillStyle = '#22c55e'; 
+                ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+                ctx.fillStyle = '#000';
+                ctx.fillRect(paddle.x + 10, paddle.y + 5, paddle.width - 20, 5);
+            }
+            soccerAnimId = requestAnimationFrame(loop);
+        }
+
+        // --- Cyber Snake Logic ---
+        let snakeAnimId;
+        let snakeKeydownHandler;
+        function stopSnake() {
+            cancelAnimationFrame(snakeAnimId);
+            if (snakeKeydownHandler) {
+                window.removeEventListener('keydown', snakeKeydownHandler);
+            }
+        }
+
+        function resetSnake() {
+            stopSnake();
+            document.getElementById('snake-gameover').style.display = 'none';
+            const canvas = document.getElementById('snake-canvas');
+            const ctx = canvas.getContext('2d');
+            const scoreEl = document.getElementById('snake-score');
+            
+            const gridSize = 20;
+            let snake = [{ x: 160, y: 160 }];
+            let food = { x: 80, y: 80 };
+            let dx = gridSize;
+            let dy = 0;
+            let gameOver = false;
+            let score = 0;
+            let lastPaintTime = 0;
+
+            scoreEl.innerText = score;
+            
+            const placeFood = () => {
+                food.x = Math.floor(Math.random() * (canvas.width / gridSize)) * gridSize;
+                food.y = Math.floor(Math.random() * (canvas.height / gridSize)) * gridSize;
+            };
+            placeFood();
+
+            snakeKeydownHandler = (e) => {
+                if(["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+                    e.preventDefault();
+                }
+                if (e.key === 'ArrowUp' && dy === 0) { dx = 0; dy = -gridSize; }
+                if (e.key === 'ArrowDown' && dy === 0) { dx = 0; dy = gridSize; }
+                if (e.key === 'ArrowLeft' && dx === 0) { dx = -gridSize; dy = 0; }
+                if (e.key === 'ArrowRight' && dx === 0) { dx = gridSize; dy = 0; }
+            };
+            window.addEventListener('keydown', snakeKeydownHandler);
+
+            function loop(currentTime) {
+                snakeAnimId = requestAnimationFrame(loop);
+                
+                if (currentTime - lastPaintTime < 100) return;
+                lastPaintTime = currentTime;
+
+                if (gameOver) return;
+
+                const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+                snake.unshift(head);
+
+                if (head.x === food.x && head.y === food.y) {
+                    score += 10;
+                    scoreEl.innerText = score;
+                    placeFood();
+                } else {
+                    snake.pop();
+                }
+
+                if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height ||
+                    snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)) {
+                    gameOver = true;
+                    document.getElementById('snake-gameover').style.display = 'flex';
+                }
+
+                ctx.fillStyle = '#0f172a'; 
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.strokeStyle = '#1e293b'; 
+                for(let i=0; i<canvas.width; i+=gridSize) {
+                    ctx.beginPath(); ctx.moveTo(i,0); ctx.lineTo(i,canvas.height); ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(0,i); ctx.lineTo(canvas.width,i); ctx.stroke();
+                }
+
+                ctx.fillStyle = '#22d3ee'; 
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#22d3ee';
+                snake.forEach((segment, i) => {
+                    ctx.fillStyle = i === 0 ? '#ffffff' : '#22d3ee';
+                    ctx.fillRect(segment.x + 1, segment.y + 1, gridSize - 2, gridSize - 2);
+                });
+
+                ctx.fillStyle = '#ef4444'; 
+                ctx.shadowColor = '#ef4444';
+                ctx.beginPath();
+                ctx.arc(food.x + gridSize/2, food.y + gridSize/2, gridSize/2 - 2, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+            snakeAnimId = requestAnimationFrame(loop);
+        }
+
+        // --- Vision RPS Logic ---
+        let rpsScore = { player: 0, ai: 0 };
+        function playRPS(playerChoice) {
+            const choices = ['Rock', 'Paper', 'Scissors'];
+            const icons = { 'Rock': '✊', 'Paper': '✋', 'Scissors': '✌️' };
+            const aiChoice = choices[Math.floor(Math.random() * choices.length)];
+
+            document.getElementById('rps-choice-player').innerText = icons[playerChoice];
+            document.getElementById('rps-choice-ai').innerText = icons[aiChoice];
+            
+            const resultEl = document.getElementById('rps-result');
+            
+            if (playerChoice === aiChoice) {
+                resultEl.innerText = "IT'S A DRAW!";
+                resultEl.className = "text-xl font-bold tracking-widest text-yellow-400 font-orbitron";
+            } else if (
+                (playerChoice === 'Rock' && aiChoice === 'Scissors') ||
+                (playerChoice === 'Paper' && aiChoice === 'Rock') ||
+                (playerChoice === 'Scissors' && aiChoice === 'Paper')
+            ) {
+                resultEl.innerText = "YOU WIN!";
+                resultEl.className = "text-xl font-bold tracking-widest text-green-400 font-orbitron";
+                rpsScore.player++;
+                document.getElementById('rps-score-player').innerText = rpsScore.player;
+            } else {
+                resultEl.innerText = "AI WINS!";
+                resultEl.className = "text-xl font-bold tracking-widest text-red-500 font-orbitron";
+                rpsScore.ai++;
+                document.getElementById('rps-score-ai').innerText = rpsScore.ai;
+            }
+        }
+
+        // Initialize Space Vibe by default after a brief delay so canvas sizing works
+        window.onload = function() {
+            setTimeout(() => {
+                openGame('space');
+            }, 100);
         };
     </script>
 </body>

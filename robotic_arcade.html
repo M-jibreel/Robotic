@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
-        
+
         :root {
             --neon-blue: #00f2fe;
             --dark-bg: #0a0b1e;
@@ -21,7 +22,9 @@
             scroll-behavior: smooth;
         }
 
-        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
 
         .neon-border {
             border: 1px solid rgba(0, 242, 254, 0.3);
@@ -61,15 +64,19 @@
         }
     </style>
 </head>
+
 <body class="bg-slate-950">
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
+    <nav
+        class="fixed w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center">
+            <div
+                class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center">
                 <i class="fas fa-robot text-white"></i>
             </div>
-            <span class="font-orbitron font-bold text-xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+            <span
+                class="font-orbitron font-bold text-xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
                 MIS ARCADE 2026
             </span>
         </div>
@@ -89,23 +96,28 @@
             </video>
             <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
         </div>
-        
-        <div class="container mx-auto px-6 relative z-10 text-center lg:text-left grid lg:grid-cols-2 gap-12 items-center">
+
+        <div
+            class="container mx-auto px-6 relative z-10 text-center lg:text-left grid lg:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
-                <div class="inline-block py-1 px-4 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-bold tracking-widest font-orbitron">
+                <div
+                    class="inline-block py-1 px-4 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-bold tracking-widest font-orbitron">
                     ALMOKTASHIF INTERNATIONAL SCHOOL
                 </div>
                 <h1 class="font-orbitron text-5xl md:text-7xl font-bold leading-tight">
                     Robotic <span class="text-cyan-400">Future</span> <br> Is Here
                 </h1>
                 <p class="text-slate-300 text-lg max-w-lg mx-auto lg:mx-0">
-                    Experience the next generation of student innovation. Explore our autonomous builds and interactive simulations for the 2026 season.
+                    Experience the next generation of student innovation. Explore our autonomous builds and interactive
+                    simulations for the 2026 season.
                 </p>
                 <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-                    <a href="#cinema" class="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold py-3 px-8 rounded-full transition-all flex items-center gap-2">
+                    <a href="#cinema"
+                        class="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold py-3 px-8 rounded-full transition-all flex items-center gap-2">
                         <i class="fas fa-play"></i> WATCH CINEMA
                     </a>
-                    <a href="#arcade" class="border border-white/20 hover:bg-white/5 py-3 px-8 rounded-full transition-all">
+                    <a href="#arcade"
+                        class="border border-white/20 hover:bg-white/5 py-3 px-8 rounded-full transition-all">
                         ENTER ARCADE
                     </a>
                 </div>
@@ -117,19 +129,23 @@
     <section id="cinema" class="py-24 px-6 bg-slate-900/20">
         <div class="container mx-auto">
             <div class="mb-16">
-                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-2">Event <span class="text-cyan-400">Cinema</span></h2>
+                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-2">Event <span
+                        class="text-cyan-400">Cinema</span></h2>
                 <p class="text-slate-400">Hover over the screens to preview the 2026 builds.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Video 1: Scorpion -->
                 <div class="neon-border  rounded-xl overflow-hidden group relative">
-                    <video loop muted  playsinline class="w-full aspect-video object-cover" onmouseover="this.play()" onmouseout="this.pause()">
+                    <video loop muted playsinline class="w-full aspect-video object-cover" onmouseover="this.play()"
+                        onmouseout="this.pause()">
                         <source src="scorpion_00.mp4" type="video/mp4">
                     </video>
-                    <div class="p-6 pointer-events-none video-overlay absolute inset-0 flex flex-col justify-end opacity-100 group-hover:bg-slate-950/40 transition">
+                    <div
+                        class="p-6 pointer-events-none video-overlay absolute inset-0 flex flex-col justify-end opacity-100 group-hover:bg-slate-950/40 transition">
                         <h4 class="font-orbitron font-bold text-lg">The Scorpion 2.0</h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
                             Advanced multi-leg locomotion system using LEGO Prime hardware.
                         </p>
                     </div>
@@ -137,12 +153,14 @@
 
                 <!-- Video 2: Bounce Ball -->
                 <div class="neon-border rounded-xl overflow-hidden group relative">
-                    <video loop muted playsinline class="w-full aspect-video object-cover" onmouseover="this.play()" onmouseout="this.pause()">
+                    <video loop muted playsinline class="w-full aspect-video object-cover" onmouseover="this.play()"
+                        onmouseout="this.pause()">
                         <source src="bounce_ball_00.mp4" type="video/mp4">
                     </video>
                     <div class="p-6 pointer-events-none video-overlay absolute inset-0 flex flex-col justify-end">
                         <h4 class="font-orbitron font-bold text-lg">Bounce Ball Bot</h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
                             Spherical drive system for 360-degree maneuverability and obstacle avoidance.
                         </p>
                     </div>
@@ -150,68 +168,80 @@
 
                 <!-- Video 3: Student -->
                 <div class="neon-border rounded-xl overflow-hidden group relative">
-                    <video loop muted  playsinline class="w-full aspect-video object-cover" onmouseover="this.play()" onmouseout="this.pause()">
+                    <video loop muted playsinline class="w-full aspect-video object-cover" onmouseover="this.play()"
+                        onmouseout="this.pause()">
                         <source src="Good_student_Video.mp4" type="video/mp4">
                     </video>
                     <div class="p-6 video-overlay pointer-events-none absolute inset-0 flex flex-col justify-end">
                         <h4 class="font-orbitron font-bold text-lg">Student Showcase</h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
                             Meet the innovators behind the code at MIS International School.
                         </p>
                     </div>
                 </div>
-                <!-- Video 4: Student -->
+
+                <!-- Video 4: cuber -->
                 <div class="neon-border rounded-xl overflow-hidden group relative">
-                    <video loop muted  playsinline class="w-full aspect-video object-cover" onmouseover="this.play()" onmouseout="this.pause()">
+                    <video loop muted playsinline class="w-full aspect-video object-cover" onmouseover="this.play()"
+                        onmouseout="this.pause()">
                         <source src="cuber.mp4" type="video/mp4">
                     </video>
                     <div class="p-6 video-overlay pointer-events-none absolute inset-0 flex flex-col justify-end">
                         <h4 class="font-orbitron font-bold text-lg">PrimeCuber</h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
                             PrimeCuber is a robot that solves a 3×3 Rubik’s Cube automatically.
                         </p>
                     </div>
                 </div>
-                      <!-- Video 5: Student -->
+                <!-- Video 5: direction_rover_ -->
                 <div class="neon-border rounded-xl overflow-hidden group relative">
-                    <video loop muted  playsinline class="w-full aspect-video object-cover" onmouseover="this.play()" onmouseout="this.pause()">
+                    <video loop muted playsinline class="w-full aspect-video object-cover" onmouseover="this.play()"
+                        onmouseout="this.pause()">
                         <source src="direction_rover_00.mp4" type="video/mp4">
                     </video>
                     <div class="p-6 video-overlay pointer-events-none absolute inset-0 flex flex-col justify-end">
-                        <h4 class="font-orbitron font-bold text-lg">PrimeCuber</h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
-                            color rover is a robot that uses a color sensor And make decisions based on the color it sees.
+                        <h4 class="font-orbitron font-bold text-lg">Color Control Rover</h4>
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                            color rover is a robot that uses a color sensor And make decisions based on the color it
+                            sees.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
- <!-- Hardware Gallery -->
+    <!-- Hardware Gallery -->
     <section id="hardware" class="py-24 px-6 bg-slate-900/20">
         <div class="container mx-auto">
             <div class="mb-16">
-                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-2">Hardware Lab <span class="text-cyan-400">Showcase</span></h2>
+                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-2">Hardware Lab <span
+                        class="text-cyan-400">Showcase</span></h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- image 1: cuber -->
                 <div class="neon-border  rounded-xl overflow-hidden group relative">
                     <img src="cuber.jpeg" alt="PrimeCuber" class="w-full aspect-video ">
-                    <div class="p-6 pointer-events-none video-overlay absolute inset-0 flex flex-col justify-end opacity-100 group-hover:bg-slate-950/40 transition">
+                    <div
+                        class="p-6 pointer-events-none video-overlay absolute inset-0 flex flex-col justify-end opacity-100 group-hover:bg-slate-950/40 transition">
                         <h4 class="font-orbitron font-bold text-lg">PrimeCuber</h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
-                            
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+
                         </p>
                     </div>
                 </div>
 
                 <!-- image 2: ping Pong -->
                 <div class="neon-border rounded-xl overflow-hidden group relative">
-                   <img src="ping_pong.jpeg" alt="Ping Pong " class="w-full aspect-video ">
+                    <img src="ping_pong.jpeg" alt="Ping Pong " class="w-full aspect-video ">
                     <div class="p-6 pointer-events-none video-overlay absolute inset-0 flex flex-col justify-end">
                         <h4 class="font-orbitron font-bold text-lg">ping Ball Bot</h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
                         </p>
                     </div>
                 </div>
@@ -221,7 +251,8 @@
                     <img src="scorpion.jpeg" alt="scorpion" class="w-full aspect-video ">
                     <div class="p-6 video-overlay pointer-events-none absolute inset-0 flex flex-col justify-end">
                         <h4 class="font-orbitron font-bold text-lg">scorpion </h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
                         </p>
                     </div>
                 </div>
@@ -230,32 +261,35 @@
                     <img src="race_car.jpeg" alt="Race Car" class="w-full aspect-video ">
                     <div class="p-6 video-overlay pointer-events-none absolute inset-0 flex flex-col justify-end">
                         <h4 class="font-orbitron font-bold text-lg">Race Car</h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
                         </p>
                     </div>
                 </div>
-                      <!-- image 5: smart drwing robot -->
+                <!-- image 5: smart drwing robot -->
                 <div class="neon-border rounded-xl overflow-hidden group relative">
                     <img src="Smart_Drwaing_Robot.png" alt="Smart Drawing Robot" class="w-full aspect-video ">
                     <div class="p-6 video-overlay pointer-events-none absolute inset-0 flex flex-col justify-end">
                         <h4 class="font-orbitron font-bold text-lg">Smart Drawing Robot</h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
                         </p>
                     </div>
                 </div>
-                 <!-- image 5: bounce bot -->
+                <!-- image 5: bounce bot -->
                 <div class="neon-border rounded-xl overflow-hidden group relative">
                     <img src="bounce.jpeg" alt="Bounce Bot" class="w-full aspect-video ">
                     <div class="p-6 video-overlay pointer-events-none absolute inset-0 flex flex-col justify-end">
                         <h4 class="font-orbitron font-bold text-lg">Bounce Bot</h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<!-- mentor Gallery -->
+    <!-- mentor Gallery -->
     <section id="hardware" class="py-24 px-6 bg-slate-900/20">
         <div class="container mx-auto">
             <div class="mb-16">
@@ -266,45 +300,51 @@
                 <!-- image 1: mentor  -->
                 <div class="neon-border  rounded-xl overflow-hidden group relative">
                     <img src="teacher.jpeg" alt="teacher" class="w-full h-full aspect-video ">
-                    <div class="p-6 pointer-events-none video-overlay absolute inset-0 flex flex-col justify-end opacity-100 group-hover:bg-slate-950/40 transition">
+                    <div
+                        class="p-6 pointer-events-none video-overlay absolute inset-0 flex flex-col justify-end opacity-100 group-hover:bg-slate-950/40 transition">
                         <h4 class="font-orbitron font-bold text-lg"></h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
-                            
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+
                         </p>
                     </div>
                 </div>
 
                 <!-- image 2: ping Pong -->
                 <div class="neon-border rounded-xl overflow-hidden group relative">
-                   <img src="teacher2.jpeg" alt=" teacher " class="w-full h-full aspect-video ">
+                    <img src="teacher2.jpeg" alt=" teacher " class="w-full h-full aspect-video ">
                     <div class="p-6 pointer-events-none video-overlay absolute inset-0 flex flex-col justify-end">
-                        <h4 class="font-orbitron font-bold text-lg">  </h4>
-                        <p class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h4 class="font-orbitron font-bold text-lg"> </h4>
+                        <p
+                            class="text-xs text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition duration-500">
                         </p>
                     </div>
                 </div>
 
-          
-    
 
-        </div>
+
+
+            </div>
     </section>
 
     <!-- Virtual Arcade -->
     <section id="arcade" class="py-24 px-6 relative">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-12">
-                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-4">VIRTUAL <span class="text-cyan-400">ARCADE</span></h2>
+                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-4">VIRTUAL <span
+                        class="text-cyan-400">ARCADE</span></h2>
                 <p class="text-slate-400">Test the logic simulating our physical projects directly in your browser.</p>
             </div>
 
-            <div class="flex flex-col lg:flex-row gap-8 bg-slate-950/80 border border-white/10 rounded-2xl p-4 md:p-8 shadow-2xl">
-                
+            <div
+                class="flex flex-col lg:flex-row gap-8 bg-slate-950/80 border border-white/10 rounded-2xl p-4 md:p-8 shadow-2xl">
+
                 <!-- Game Selector -->
                 <div class="w-full lg:w-1/3 flex flex-col gap-3">
                     <h3 class="text-slate-500 font-orbitron text-sm uppercase mb-2 pl-2">Select Program</h3>
-                    
-                    <button onclick="openGame('space')" id="tab-space" class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-purple-500/20 border-l-4 border-purple-500 text-white">
+
+                    <button onclick="openGame('space')" id="tab-space"
+                        class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-purple-500/20 border-l-4 border-purple-500 text-white">
                         <i data-lucide="rocket" class="text-purple-500"></i>
                         <div>
                             <div class="font-bold font-orbitron">Space Vibe</div>
@@ -312,7 +352,8 @@
                         </div>
                     </button>
 
-                    <button onclick="openGame('soccer')" id="tab-soccer" class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400">
+                    <button onclick="openGame('soccer')" id="tab-soccer"
+                        class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400">
                         <i data-lucide="shield-alert"></i>
                         <div>
                             <div class="font-bold font-orbitron">Arduino Defend</div>
@@ -320,7 +361,8 @@
                         </div>
                     </button>
 
-                    <button onclick="openGame('snake')" id="tab-snake" class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400">
+                    <button onclick="openGame('snake')" id="tab-snake"
+                        class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400">
                         <i data-lucide="git-commit"></i>
                         <div>
                             <div class="font-bold font-orbitron">Cyber Snake</div>
@@ -328,7 +370,8 @@
                         </div>
                     </button>
 
-                    <button onclick="openGame('rps')" id="tab-rps" class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400">
+                    <button onclick="openGame('rps')" id="tab-rps"
+                        class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400">
                         <i data-lucide="bot"></i>
                         <div>
                             <div class="font-bold font-orbitron">Vision RPS</div>
@@ -336,7 +379,8 @@
                         </div>
                     </button>
 
-                    <button onclick="openGame('balloon')" id="tab-balloon" class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400">
+                    <button onclick="openGame('balloon')" id="tab-balloon"
+                        class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400">
                         <i data-lucide="crosshair"></i>
                         <div>
                             <div class="font-bold font-orbitron">Balloon Pop</div>
@@ -346,21 +390,29 @@
                 </div>
 
                 <!-- Game Display Area -->
-                <div class="w-full lg:w-2/3 bg-slate-900 rounded-xl border border-white/10 flex items-center justify-center p-4 min-h-[600px] relative overflow-hidden">
-                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-50 z-0"></div>
+                <div
+                    class="w-full lg:w-2/3 bg-slate-900 rounded-xl border border-white/10 flex items-center justify-center p-4 min-h-[600px] relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-50 z-0">
+                    </div>
                     <div class="relative z-10 w-full h-full flex flex-col items-center justify-center">
-                        
+
                         <!-- Space Vibe Content -->
                         <div id="game-space" class="game-content flex flex-col items-center w-full">
                             <div class="flex justify-between w-full max-w-[400px] mb-4">
-                                <span class="font-orbitron text-sm text-purple-400">SCORE:<span id="space-score">0</span></span>
+                                <span class="font-orbitron text-sm text-purple-400">SCORE:<span
+                                        id="space-score">0</span></span>
                                 <span class="text-xs text-slate-400">MOUSE TO DODGE</span>
                             </div>
-                            <div class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-purple-500/20">
-                                <canvas id="space-canvas" width="400" height="500" class="bg-slate-950 cursor-none"></canvas>
-                                <div id="space-gameover" class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center z-10">
+                            <div
+                                class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-purple-500/20">
+                                <canvas id="space-canvas" width="400" height="500"
+                                    class="bg-slate-950 cursor-none"></canvas>
+                                <div id="space-gameover"
+                                    class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center z-10">
                                     <span class="text-purple-500 font-orbitron text-xl mb-4">HULL BREACH</span>
-                                    <button onclick="resetSpaceVibe()" class="px-6 py-2 bg-purple-500/20 border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-black font-bold transition-all">RESTART</button>
+                                    <button onclick="resetSpaceVibe()"
+                                        class="px-6 py-2 bg-purple-500/20 border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-black font-bold transition-all">RESTART</button>
                                 </div>
                             </div>
                         </div>
@@ -368,14 +420,20 @@
                         <!-- Arduino Soccer Defense -->
                         <div id="game-soccer" class="game-content hidden flex-col items-center w-full">
                             <div class="flex justify-between w-full max-w-[400px] mb-4">
-                                <span class="font-orbitron text-sm text-cyan-400">SAVES:<span id="soccer-score">0</span></span>
-                                <span class="font-orbitron text-sm text-red-500">LIVES:<span id="soccer-lives">❤️❤️❤️</span></span>
+                                <span class="font-orbitron text-sm text-cyan-400">SAVES:<span
+                                        id="soccer-score">0</span></span>
+                                <span class="font-orbitron text-sm text-red-500">LIVES:<span
+                                        id="soccer-lives">❤️❤️❤️</span></span>
                             </div>
-                            <div class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-cyan-500/20 bg-green-900/20">
+                            <div
+                                class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-cyan-500/20 bg-green-900/20">
                                 <canvas id="soccer-canvas" width="400" height="500" class="cursor-none"></canvas>
-                                <div id="soccer-gameover" class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center z-10">
+                                <div id="soccer-gameover"
+                                    class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center z-10">
                                     <span class="text-red-500 font-orbitron text-xl mb-4">GAME OVER</span>
-                                    <button onclick="resetSoccerDefense()" class="px-6 py-2 bg-cyan-500/20 border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black font-bold transition-all">TRY AGAIN</button>
+                                    <button onclick="resetSoccerDefense()"
+                                        class="px-6 py-2 bg-cyan-500/20 border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black font-bold transition-all">TRY
+                                        AGAIN</button>
                                 </div>
                             </div>
                         </div>
@@ -383,67 +441,86 @@
                         <!-- Cyber Snake -->
                         <div id="game-snake" class="game-content hidden flex-col items-center w-full">
                             <div class="flex justify-between w-full max-w-[400px] mb-4">
-                                <span class="font-orbitron text-sm text-cyan-400">SCORE:<span id="snake-score">0</span></span>
+                                <span class="font-orbitron text-sm text-cyan-400">SCORE:<span
+                                        id="snake-score">0</span></span>
                                 <span class="text-xs text-slate-400">USE ARROW KEYS OR SWIPE</span>
                             </div>
-                            <div class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-cyan-500/20">
+                            <div
+                                class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-cyan-500/20">
                                 <canvas id="snake-canvas" width="400" height="400" class="bg-slate-950"></canvas>
-                                <div id="snake-gameover" class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center">
+                                <div id="snake-gameover"
+                                    class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center">
                                     <span class="text-red-500 font-orbitron text-xl mb-4">SYSTEM FAILURE</span>
-                                    <button onclick="resetSnake()" class="px-6 py-2 bg-cyan-500/20 border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black font-bold transition-all">REBOOT</button>
+                                    <button onclick="resetSnake()"
+                                        class="px-6 py-2 bg-cyan-500/20 border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black font-bold transition-all">REBOOT</button>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Vision RPS -->
-                        <div id="game-rps" class="game-content hidden flex-col items-center justify-center h-full text-center p-4 w-full">
+                        <div id="game-rps"
+                            class="game-content hidden flex-col items-center justify-center h-full text-center p-4 w-full">
                             <h3 class="text-2xl font-orbitron text-cyan-400 mb-8">Man vs Machine</h3>
-                            
+
                             <div class="flex justify-between w-full max-w-md mb-8">
                                 <div class="flex flex-col items-center">
                                     <span class="text-sm text-slate-400 mb-2 font-orbitron">PLAYER</span>
-                                    <span id="rps-score-player" class="text-4xl font-bold text-cyan-400 font-orbitron">0</span>
+                                    <span id="rps-score-player"
+                                        class="text-4xl font-bold text-cyan-400 font-orbitron">0</span>
                                 </div>
                                 <div class="flex flex-col items-center">
                                     <span class="text-sm text-slate-400 mb-2 font-orbitron">AI VISION</span>
-                                    <span id="rps-score-ai" class="text-4xl font-bold text-purple-500 font-orbitron">0</span>
+                                    <span id="rps-score-ai"
+                                        class="text-4xl font-bold text-purple-500 font-orbitron">0</span>
                                 </div>
                             </div>
 
                             <div class="flex justify-center items-center gap-8 mb-8 text-6xl">
-                                <div id="rps-choice-player" class="w-24 h-24 flex items-center justify-center bg-slate-800 rounded-xl border border-cyan-500 shadow-[0_0_15px_rgba(34,211,238,0.3)]">
+                                <div id="rps-choice-player"
+                                    class="w-24 h-24 flex items-center justify-center bg-slate-800 rounded-xl border border-cyan-500 shadow-[0_0_15px_rgba(34,211,238,0.3)]">
                                     ❓
                                 </div>
                                 <div class="text-3xl flex items-center text-slate-500 font-bold font-orbitron">VS</div>
-                                <div id="rps-choice-ai" class="w-24 h-24 flex items-center justify-center bg-slate-800 rounded-xl border border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                                <div id="rps-choice-ai"
+                                    class="w-24 h-24 flex items-center justify-center bg-slate-800 rounded-xl border border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
                                     ❓
                                 </div>
                             </div>
 
                             <div class="h-8 mb-8">
-                                <span id="rps-result" class="text-xl font-bold tracking-widest text-yellow-400 font-orbitron">
+                                <span id="rps-result"
+                                    class="text-xl font-bold tracking-widest text-yellow-400 font-orbitron">
                                     AWAITING INPUT
                                 </span>
                             </div>
 
                             <div class="flex justify-center gap-4">
-                                <button onclick="playRPS('Rock')" class="bg-slate-800 hover:bg-slate-700 text-4xl p-4 rounded-xl border border-slate-600 hover:border-cyan-400 transition-all hover:scale-110">✊</button>
-                                <button onclick="playRPS('Paper')" class="bg-slate-800 hover:bg-slate-700 text-4xl p-4 rounded-xl border border-slate-600 hover:border-cyan-400 transition-all hover:scale-110">✋</button>
-                                <button onclick="playRPS('Scissors')" class="bg-slate-800 hover:bg-slate-700 text-4xl p-4 rounded-xl border border-slate-600 hover:border-cyan-400 transition-all hover:scale-110">✌️</button>
+                                <button onclick="playRPS('Rock')"
+                                    class="bg-slate-800 hover:bg-slate-700 text-4xl p-4 rounded-xl border border-slate-600 hover:border-cyan-400 transition-all hover:scale-110">✊</button>
+                                <button onclick="playRPS('Paper')"
+                                    class="bg-slate-800 hover:bg-slate-700 text-4xl p-4 rounded-xl border border-slate-600 hover:border-cyan-400 transition-all hover:scale-110">✋</button>
+                                <button onclick="playRPS('Scissors')"
+                                    class="bg-slate-800 hover:bg-slate-700 text-4xl p-4 rounded-xl border border-slate-600 hover:border-cyan-400 transition-all hover:scale-110">✌️</button>
                             </div>
                         </div>
 
                         <!-- Balloon Pop -->
                         <div id="game-balloon" class="game-content hidden flex-col items-center w-full">
                             <div class="flex justify-between w-full max-w-[400px] mb-4">
-                                <span class="font-orbitron text-sm text-pink-500">SCORE:<span id="balloon-score">0</span></span>
-                                <span class="font-orbitron text-sm text-slate-400">TIME:<span id="balloon-time">30</span></span>
+                                <span class="font-orbitron text-sm text-pink-500">SCORE:<span
+                                        id="balloon-score">0</span></span>
+                                <span class="font-orbitron text-sm text-slate-400">TIME:<span
+                                        id="balloon-time">30</span></span>
                             </div>
-                            <div class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-pink-500/20">
+                            <div
+                                class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-pink-500/20">
                                 <canvas id="balloon-canvas" width="400" height="500" class="bg-slate-950"></canvas>
-                                <div id="balloon-gameover" class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center">
+                                <div id="balloon-gameover"
+                                    class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center">
                                     <span class="text-pink-500 font-orbitron text-xl mb-4">TIME'S UP</span>
-                                    <button onclick="resetBalloon()" class="px-6 py-2 bg-pink-500/20 border border-pink-500 text-pink-400 hover:bg-pink-500 hover:text-black font-bold transition-all">TRY AGAIN</button>
+                                    <button onclick="resetBalloon()"
+                                        class="px-6 py-2 bg-pink-500/20 border border-pink-500 text-pink-400 hover:bg-pink-500 hover:text-black font-bold transition-all">TRY
+                                        AGAIN</button>
                                 </div>
                             </div>
                         </div>
@@ -532,7 +609,7 @@
             const canvas = document.getElementById('space-canvas');
             const ctx = canvas.getContext('2d');
             const scoreEl = document.getElementById('space-score');
-            
+
             let gameOver = false;
             let score = 0;
             scoreEl.innerText = score;
@@ -547,8 +624,8 @@
             const handleMouseMove = (e) => {
                 const rect = canvas.getBoundingClientRect();
                 ship.x = e.clientX - rect.left - ship.width / 2;
-                if(ship.x < 0) ship.x = 0;
-                if(ship.x + ship.width > canvas.width) ship.x = canvas.width - ship.width;
+                if (ship.x < 0) ship.x = 0;
+                if (ship.x + ship.width > canvas.width) ship.x = canvas.width - ship.width;
             };
 
             const handleTouchMove = (e) => {
@@ -558,10 +635,10 @@
             };
 
             canvas.onmousemove = handleMouseMove;
-            canvas.addEventListener('touchmove', handleTouchMove, {passive: false});
+            canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
 
             function shoot() {
-                if(gameOver) return;
+                if (gameOver) return;
                 projectiles.push({
                     x: ship.x + ship.width / 2,
                     y: ship.y,
@@ -572,7 +649,7 @@
             }
 
             canvas.onmousedown = (e) => shoot();
-            
+
             let lastTap = 0;
             canvas.addEventListener('touchstart', (e) => {
                 const currentTime = new Date().getTime();
@@ -582,10 +659,10 @@
                     e.preventDefault();
                 }
                 lastTap = currentTime;
-            }, {passive: false});
+            }, { passive: false });
 
             function loop() {
-                if(gameOver) return;
+                if (gameOver) return;
                 spaceAnimId = requestAnimationFrame(loop);
                 frameCount++;
 
@@ -595,27 +672,27 @@
                 ctx.fillStyle = '#fff';
                 stars.forEach(star => {
                     star.y += star.speed;
-                    if(star.y > canvas.height) { star.y = 0; star.x = Math.random() * canvas.width; }
-                    ctx.beginPath(); ctx.arc(star.x, star.y, star.size, 0, Math.PI*2); ctx.fill();
+                    if (star.y > canvas.height) { star.y = 0; star.x = Math.random() * canvas.width; }
+                    ctx.beginPath(); ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2); ctx.fill();
                 });
 
-                if(frameCount % 30 === 0) {
+                if (frameCount % 30 === 0) {
                     asteroids.push({
                         x: Math.random() * (canvas.width - 20),
                         y: -20,
                         size: Math.random() * 20 + 10,
-                        speed: Math.random() * 3 + 2 + (score/500)
+                        speed: Math.random() * 3 + 2 + (score / 500)
                     });
                 }
 
-                ctx.fillStyle = '#a855f7'; 
+                ctx.fillStyle = '#a855f7';
                 ctx.shadowBlur = 15;
                 ctx.shadowColor = '#a855f7';
-                for(let i = asteroids.length - 1; i >= 0; i--) {
+                for (let i = asteroids.length - 1; i >= 0; i--) {
                     let a = asteroids[i];
                     a.y += a.speed;
-                    
-                    ctx.beginPath(); ctx.arc(a.x, a.y, a.size, 0, Math.PI*2); ctx.fill();
+
+                    ctx.beginPath(); ctx.arc(a.x, a.y, a.size, 0, Math.PI * 2); ctx.fill();
 
                     if (a.y + a.size > ship.y && a.y - a.size < ship.y + ship.height &&
                         a.x + a.size > ship.x && a.x - a.size < ship.x + ship.width) {
@@ -623,7 +700,7 @@
                         document.getElementById('space-gameover').style.display = 'flex';
                     }
 
-                    if(a.y > canvas.height) {
+                    if (a.y > canvas.height) {
                         asteroids.splice(i, 1);
                         score += 10;
                         scoreEl.innerText = score;
@@ -635,18 +712,18 @@
                 ctx.fillStyle = '#22d3ee';
                 ctx.shadowBlur = 10;
                 ctx.shadowColor = '#22d3ee';
-                for(let i = projectiles.length - 1; i >= 0; i--) {
+                for (let i = projectiles.length - 1; i >= 0; i--) {
                     let p = projectiles[i];
                     p.y -= p.speed;
-                    ctx.fillRect(p.x - p.width/2, p.y, p.width, p.height);
+                    ctx.fillRect(p.x - p.width / 2, p.y, p.width, p.height);
 
-                    if(p.y + p.height < 0) {
+                    if (p.y + p.height < 0) {
                         projectiles.splice(i, 1);
                         continue;
                     }
 
                     let hit = false;
-                    for(let j = asteroids.length - 1; j >= 0; j--) {
+                    for (let j = asteroids.length - 1; j >= 0; j--) {
                         let a = asteroids[j];
                         if (p.x > a.x - a.size && p.x < a.x + a.size &&
                             p.y < a.y + a.size && p.y + p.height > a.y - a.size) {
@@ -658,21 +735,21 @@
                             break;
                         }
                     }
-                    if(hit) continue;
+                    if (hit) continue;
                 }
                 ctx.shadowBlur = 0;
 
-                ctx.fillStyle = '#22d3ee'; 
+                ctx.fillStyle = '#22d3ee';
                 ctx.beginPath();
-                ctx.moveTo(ship.x + ship.width/2, ship.y);
+                ctx.moveTo(ship.x + ship.width / 2, ship.y);
                 ctx.lineTo(ship.x + ship.width, ship.y + ship.height);
                 ctx.lineTo(ship.x, ship.y + ship.height);
                 ctx.closePath();
                 ctx.fill();
-                
+
                 ctx.fillStyle = '#f97316';
                 ctx.beginPath();
-                ctx.arc(ship.x + ship.width/2, ship.y + ship.height + Math.random()*5, 5, 0, Math.PI*2);
+                ctx.arc(ship.x + ship.width / 2, ship.y + ship.height + Math.random() * 5, 5, 0, Math.PI * 2);
                 ctx.fill();
             }
             spaceAnimId = requestAnimationFrame(loop);
@@ -689,22 +766,22 @@
             const ctx = canvas.getContext('2d');
             const scoreEl = document.getElementById('soccer-score');
             const livesEl = document.getElementById('soccer-lives');
-            
+
             let score = 0;
             let lives = 3;
             scoreEl.innerText = score;
             livesEl.innerText = '❤️'.repeat(lives);
 
             const paddle = { x: canvas.width / 2 - 40, y: canvas.height - 30, width: 80, height: 15 };
-            let balls = [{ x: canvas.width/2, y: 50, dx: 3, dy: 3, radius: 8 }];
+            let balls = [{ x: canvas.width / 2, y: 50, dx: 3, dy: 3, radius: 8 }];
 
             const handleMouseMove = (e) => {
                 const rect = canvas.getBoundingClientRect();
                 paddle.x = e.clientX - rect.left - paddle.width / 2;
-                if(paddle.x < 0) paddle.x = 0;
-                if(paddle.x + paddle.width > canvas.width) paddle.x = canvas.width - paddle.width;
+                if (paddle.x < 0) paddle.x = 0;
+                if (paddle.x + paddle.width > canvas.width) paddle.x = canvas.width - paddle.width;
             };
-            
+
             const handleTouchMove = (e) => {
                 e.preventDefault();
                 const rect = canvas.getBoundingClientRect();
@@ -712,54 +789,54 @@
             };
 
             canvas.onmousemove = handleMouseMove;
-            canvas.addEventListener('touchmove', handleTouchMove, {passive:false});
+            canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
 
             function loop() {
-                if(lives <= 0) return;
+                if (lives <= 0) return;
                 soccerAnimId = requestAnimationFrame(loop);
 
-                ctx.fillStyle = 'rgba(10, 20, 15, 0.9)'; 
+                ctx.fillStyle = 'rgba(10, 20, 15, 0.9)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 ctx.strokeStyle = 'rgba(255,255,255,0.2)';
                 ctx.lineWidth = 2;
-                ctx.beginPath(); ctx.moveTo(0, canvas.height/2); ctx.lineTo(canvas.width, canvas.height/2); ctx.stroke();
-                ctx.beginPath(); ctx.arc(canvas.width/2, canvas.height/2, 50, 0, Math.PI*2); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(0, canvas.height / 2); ctx.lineTo(canvas.width, canvas.height / 2); ctx.stroke();
+                ctx.beginPath(); ctx.arc(canvas.width / 2, canvas.height / 2, 50, 0, Math.PI * 2); ctx.stroke();
 
                 balls.forEach((ball, index) => {
                     ball.x += ball.dx;
                     ball.y += ball.dy;
 
-                    if(ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) ball.dx *= -1;
-                    if(ball.y - ball.radius < 0) ball.dy *= -1;
+                    if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) ball.dx *= -1;
+                    if (ball.y - ball.radius < 0) ball.dy *= -1;
 
-                    if(ball.y + ball.radius > paddle.y && ball.y - ball.radius < paddle.y + paddle.height &&
-                       ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
-                        ball.dy = -Math.abs(ball.dy) - 0.2; 
-                        ball.dx += (ball.x - (paddle.x + paddle.width/2)) * 0.1;
+                    if (ball.y + ball.radius > paddle.y && ball.y - ball.radius < paddle.y + paddle.height &&
+                        ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
+                        ball.dy = -Math.abs(ball.dy) - 0.2;
+                        ball.dx += (ball.x - (paddle.x + paddle.width / 2)) * 0.1;
                         score++;
                         scoreEl.innerText = score;
                     }
 
-                    if(ball.y + ball.radius > canvas.height) {
+                    if (ball.y + ball.radius > canvas.height) {
                         balls.splice(index, 1);
                         lives--;
                         livesEl.innerText = '❤️'.repeat(lives);
-                        if(lives <= 0) {
+                        if (lives <= 0) {
                             document.getElementById('soccer-gameover').style.display = 'flex';
                         } else {
-                            balls.push({ x: canvas.width/2, y: 50, dx: (Math.random()-0.5)*6, dy: 3, radius: 8 });
+                            balls.push({ x: canvas.width / 2, y: 50, dx: (Math.random() - 0.5) * 6, dy: 3, radius: 8 });
                         }
                     }
 
                     ctx.fillStyle = '#fff';
                     ctx.shadowBlur = 10;
                     ctx.shadowColor = '#22d3ee';
-                    ctx.beginPath(); ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI*2); ctx.fill();
+                    ctx.beginPath(); ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2); ctx.fill();
                     ctx.shadowBlur = 0;
                 });
 
-                ctx.fillStyle = '#22c55e'; 
+                ctx.fillStyle = '#22c55e';
                 ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
                 ctx.fillStyle = '#000';
                 ctx.fillRect(paddle.x + 10, paddle.y + 5, paddle.width - 20, 5);
@@ -790,7 +867,7 @@
             const canvas = document.getElementById('snake-canvas');
             const ctx = canvas.getContext('2d');
             const scoreEl = document.getElementById('snake-score');
-            
+
             const gridSize = 20;
             let snake = [{ x: 160, y: 160 }];
             let food = { x: 80, y: 80 };
@@ -801,7 +878,7 @@
             let lastPaintTime = 0;
 
             scoreEl.innerText = score;
-            
+
             const placeFood = () => {
                 food.x = Math.floor(Math.random() * (canvas.width / gridSize)) * gridSize;
                 food.y = Math.floor(Math.random() * (canvas.height / gridSize)) * gridSize;
@@ -809,7 +886,7 @@
             placeFood();
 
             snakeKeydownHandler = (e) => {
-                if(["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+                if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
                     e.preventDefault();
                 }
                 if (e.key === 'ArrowUp' && dy === 0) { dx = 0; dy = -gridSize; }
@@ -831,24 +908,24 @@
                 let touchEndY = e.changedTouches[0].screenY;
                 let diffX = touchEndX - touchStartX;
                 let diffY = touchEndY - touchStartY;
-                
+
                 if (Math.abs(diffX) > 20 || Math.abs(diffY) > 20) {
                     if (Math.abs(diffX) > Math.abs(diffY)) {
-                        if (diffX > 0 && dx === 0) { dx = gridSize; dy = 0; } 
-                        else if (diffX < 0 && dx === 0) { dx = -gridSize; dy = 0; } 
+                        if (diffX > 0 && dx === 0) { dx = gridSize; dy = 0; }
+                        else if (diffX < 0 && dx === 0) { dx = -gridSize; dy = 0; }
                     } else {
-                        if (diffY > 0 && dy === 0) { dx = 0; dy = gridSize; } 
-                        else if (diffY < 0 && dy === 0) { dx = 0; dy = -gridSize; } 
+                        if (diffY > 0 && dy === 0) { dx = 0; dy = gridSize; }
+                        else if (diffY < 0 && dy === 0) { dx = 0; dy = -gridSize; }
                     }
                 }
                 e.preventDefault();
             };
-            canvas.addEventListener('touchstart', snakeTouchStartHandler, {passive: false});
-            canvas.addEventListener('touchend', snakeTouchEndHandler, {passive: false});
+            canvas.addEventListener('touchstart', snakeTouchStartHandler, { passive: false });
+            canvas.addEventListener('touchend', snakeTouchEndHandler, { passive: false });
 
             function loop(currentTime) {
                 snakeAnimId = requestAnimationFrame(loop);
-                
+
                 if (currentTime - lastPaintTime < 100) return;
                 lastPaintTime = currentTime;
 
@@ -871,16 +948,16 @@
                     document.getElementById('snake-gameover').style.display = 'flex';
                 }
 
-                ctx.fillStyle = '#0f172a'; 
+                ctx.fillStyle = '#0f172a';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                ctx.strokeStyle = '#1e293b'; 
-                for(let i=0; i<canvas.width; i+=gridSize) {
-                    ctx.beginPath(); ctx.moveTo(i,0); ctx.lineTo(i,canvas.height); ctx.stroke();
-                    ctx.beginPath(); ctx.moveTo(0,i); ctx.lineTo(canvas.width,i); ctx.stroke();
+                ctx.strokeStyle = '#1e293b';
+                for (let i = 0; i < canvas.width; i += gridSize) {
+                    ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, canvas.height); ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(canvas.width, i); ctx.stroke();
                 }
 
-                ctx.fillStyle = '#22d3ee'; 
+                ctx.fillStyle = '#22d3ee';
                 ctx.shadowBlur = 10;
                 ctx.shadowColor = '#22d3ee';
                 snake.forEach((segment, i) => {
@@ -888,10 +965,10 @@
                     ctx.fillRect(segment.x + 1, segment.y + 1, gridSize - 2, gridSize - 2);
                 });
 
-                ctx.fillStyle = '#ef4444'; 
+                ctx.fillStyle = '#ef4444';
                 ctx.shadowColor = '#ef4444';
                 ctx.beginPath();
-                ctx.arc(food.x + gridSize/2, food.y + gridSize/2, gridSize/2 - 2, 0, Math.PI * 2);
+                ctx.arc(food.x + gridSize / 2, food.y + gridSize / 2, gridSize / 2 - 2, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.shadowBlur = 0;
             }
@@ -907,9 +984,9 @@
 
             document.getElementById('rps-choice-player').innerText = icons[playerChoice];
             document.getElementById('rps-choice-ai').innerText = icons[aiChoice];
-            
+
             const resultEl = document.getElementById('rps-result');
-            
+
             if (playerChoice === aiChoice) {
                 resultEl.innerText = "IT'S A DRAW!";
                 resultEl.className = "text-xl font-bold tracking-widest text-yellow-400 font-orbitron";
@@ -945,7 +1022,7 @@
             const ctx = canvas.getContext('2d');
             const scoreEl = document.getElementById('balloon-score');
             const timeEl = document.getElementById('balloon-time');
-            
+
             let gameOver = false;
             let score = 0;
             let timeLeft = 30;
@@ -967,19 +1044,19 @@
             };
 
             const popBalloon = (e) => {
-                if(gameOver) return;
+                if (gameOver) return;
                 const rect = canvas.getBoundingClientRect();
                 const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
                 const y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
 
-                for(let i = balloons.length - 1; i >= 0; i--) {
+                for (let i = balloons.length - 1; i >= 0; i--) {
                     let b = balloons[i];
                     const dist = Math.hypot(b.x - x, b.y - y);
-                    if(dist <= b.radius + 15) { // Slight padding for easier touch
+                    if (dist <= b.radius + 15) { // Slight padding for easier touch
                         balloons.splice(i, 1);
                         score += 5;
                         scoreEl.innerText = score;
-                        break; 
+                        break;
                     }
                 }
             };
@@ -988,10 +1065,10 @@
             canvas.ontouchstart = (e) => { popBalloon(e); e.preventDefault(); };
 
             balloonTimerId = setInterval(() => {
-                if(!gameOver) {
+                if (!gameOver) {
                     timeLeft--;
                     timeEl.innerText = timeLeft;
-                    if(timeLeft <= 0) {
+                    if (timeLeft <= 0) {
                         gameOver = true;
                         document.getElementById('balloon-gameover').style.display = 'flex';
                     }
@@ -999,33 +1076,33 @@
             }, 1000);
 
             function loop() {
-                if(gameOver) return;
+                if (gameOver) return;
                 balloonAnimId = requestAnimationFrame(loop);
                 frameCount++;
 
-                ctx.fillStyle = '#0f172a'; 
+                ctx.fillStyle = '#0f172a';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                if(frameCount % 40 === 0) {
+                if (frameCount % 40 === 0) {
                     spawnBalloon();
                 }
 
-                for(let i = balloons.length - 1; i >= 0; i--) {
+                for (let i = balloons.length - 1; i >= 0; i--) {
                     let b = balloons[i];
                     b.y -= b.speed;
-                    
+
                     ctx.fillStyle = b.color;
                     ctx.beginPath();
-                    ctx.ellipse(b.x, b.y, b.radius, b.radius * 1.2, 0, 0, Math.PI*2);
+                    ctx.ellipse(b.x, b.y, b.radius, b.radius * 1.2, 0, 0, Math.PI * 2);
                     ctx.fill();
-                    
+
                     ctx.strokeStyle = 'rgba(255,255,255,0.5)';
                     ctx.beginPath();
                     ctx.moveTo(b.x, b.y + b.radius * 1.2);
                     ctx.lineTo(b.x, b.y + b.radius * 1.2 + 20);
                     ctx.stroke();
 
-                    if(b.y + b.radius * 1.2 + 20 < 0) {
+                    if (b.y + b.radius * 1.2 + 20 < 0) {
                         balloons.splice(i, 1);
                     }
                 }
@@ -1034,11 +1111,12 @@
         }
 
         // Initialize Space Vibe by default after a brief delay so canvas sizing works
-        window.onload = function() {
+        window.onload = function () {
             setTimeout(() => {
                 openGame('space');
             }, 100);
         };
     </script>
 </body>
+
 </html>

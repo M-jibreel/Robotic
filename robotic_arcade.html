@@ -335,6 +335,14 @@
                             <div class="text-xs opacity-70">Vs AI Logic</div>
                         </div>
                     </button>
+
+                    <button onclick="openGame('balloon')" id="tab-balloon" class="game-tab p-4 rounded-xl text-left transition-all flex items-center gap-4 bg-slate-900 border-l-4 border-transparent hover:bg-slate-800 text-slate-400">
+                        <i data-lucide="crosshair"></i>
+                        <div>
+                            <div class="font-bold font-orbitron">Balloon Pop</div>
+                            <div class="text-xs opacity-70">Target Practice</div>
+                        </div>
+                    </button>
                 </div>
 
                 <!-- Game Display Area -->
@@ -376,7 +384,7 @@
                         <div id="game-snake" class="game-content hidden flex-col items-center w-full">
                             <div class="flex justify-between w-full max-w-[400px] mb-4">
                                 <span class="font-orbitron text-sm text-cyan-400">SCORE:<span id="snake-score">0</span></span>
-                                <span class="text-xs text-slate-400">USE ARROW KEYS</span>
+                                <span class="text-xs text-slate-400">USE ARROW KEYS OR SWIPE</span>
                             </div>
                             <div class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-cyan-500/20">
                                 <canvas id="snake-canvas" width="400" height="400" class="bg-slate-950"></canvas>
@@ -425,6 +433,21 @@
                             </div>
                         </div>
 
+                        <!-- Balloon Pop -->
+                        <div id="game-balloon" class="game-content hidden flex-col items-center w-full">
+                            <div class="flex justify-between w-full max-w-[400px] mb-4">
+                                <span class="font-orbitron text-sm text-pink-500">SCORE:<span id="balloon-score">0</span></span>
+                                <span class="font-orbitron text-sm text-slate-400">TIME:<span id="balloon-time">30</span></span>
+                            </div>
+                            <div class="relative border-2 border-slate-800 rounded-lg overflow-hidden neon-border shadow-pink-500/20">
+                                <canvas id="balloon-canvas" width="400" height="500" class="bg-slate-950"></canvas>
+                                <div id="balloon-gameover" class="absolute inset-0 bg-black/80 hidden flex-col items-center justify-center">
+                                    <span class="text-pink-500 font-orbitron text-xl mb-4">TIME'S UP</span>
+                                    <button onclick="resetBalloon()" class="px-6 py-2 bg-pink-500/20 border border-pink-500 text-pink-400 hover:bg-pink-500 hover:text-black font-bold transition-all">TRY AGAIN</button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -446,13 +469,15 @@
             'space': ['bg-purple-500/20', 'border-purple-500', 'text-white'],
             'soccer': ['bg-cyan-500/20', 'border-cyan-500', 'text-white'],
             'snake': ['bg-cyan-500/20', 'border-cyan-500', 'text-white'],
-            'rps': ['bg-yellow-500/20', 'border-yellow-500', 'text-white']
+            'rps': ['bg-yellow-500/20', 'border-yellow-500', 'text-white'],
+            'balloon': ['bg-pink-500/20', 'border-pink-500', 'text-white']
         };
         const iconColors = {
             'space': 'text-purple-500',
             'soccer': 'text-cyan-500',
             'snake': 'text-cyan-500',
-            'rps': 'text-yellow-500'
+            'rps': 'text-yellow-500',
+            'balloon': 'text-pink-500'
         };
 
         function openGame(gameId) {
@@ -460,6 +485,7 @@
             stopSpaceVibe();
             stopSoccerDefense();
             stopSnake();
+            stopBalloon();
 
             // Reset tabs
             document.querySelectorAll('.game-tab').forEach(tab => {
@@ -493,6 +519,7 @@
             if (gameId === 'space') resetSpaceVibe();
             if (gameId === 'soccer') resetSoccerDefense();
             if (gameId === 'snake') resetSnake();
+            if (gameId === 'balloon') resetBalloon();
         }
 
         // --- Space Vibe Logic ---
@@ -511,6 +538,7 @@
             scoreEl.innerText = score;
             const ship = { x: canvas.width / 2, y: canvas.height - 50, width: 30, height: 40 };
             let asteroids = [];
+            let projectiles = [];
             let stars = Array(50).fill().map(() => ({
                 x: Math.random() * canvas.width, y: Math.random() * canvas.height, size: Math.random() * 2, speed: Math.random() * 3 + 1
             }));
@@ -531,6 +559,30 @@
 
             canvas.onmousemove = handleMouseMove;
             canvas.addEventListener('touchmove', handleTouchMove, {passive: false});
+
+            function shoot() {
+                if(gameOver) return;
+                projectiles.push({
+                    x: ship.x + ship.width / 2,
+                    y: ship.y,
+                    speed: 7,
+                    width: 4,
+                    height: 10
+                });
+            }
+
+            canvas.onmousedown = (e) => shoot();
+            
+            let lastTap = 0;
+            canvas.addEventListener('touchstart', (e) => {
+                const currentTime = new Date().getTime();
+                const tapLength = currentTime - lastTap;
+                if (tapLength < 500 && tapLength > 0) {
+                    shoot();
+                    e.preventDefault();
+                }
+                lastTap = currentTime;
+            }, {passive: false});
 
             function loop() {
                 if(gameOver) return;
@@ -576,6 +628,37 @@
                         score += 10;
                         scoreEl.innerText = score;
                     }
+                }
+                ctx.shadowBlur = 0;
+
+                // Projectiles
+                ctx.fillStyle = '#22d3ee';
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#22d3ee';
+                for(let i = projectiles.length - 1; i >= 0; i--) {
+                    let p = projectiles[i];
+                    p.y -= p.speed;
+                    ctx.fillRect(p.x - p.width/2, p.y, p.width, p.height);
+
+                    if(p.y + p.height < 0) {
+                        projectiles.splice(i, 1);
+                        continue;
+                    }
+
+                    let hit = false;
+                    for(let j = asteroids.length - 1; j >= 0; j--) {
+                        let a = asteroids[j];
+                        if (p.x > a.x - a.size && p.x < a.x + a.size &&
+                            p.y < a.y + a.size && p.y + p.height > a.y - a.size) {
+                            asteroids.splice(j, 1);
+                            projectiles.splice(i, 1);
+                            score += 20;
+                            scoreEl.innerText = score;
+                            hit = true;
+                            break;
+                        }
+                    }
+                    if(hit) continue;
                 }
                 ctx.shadowBlur = 0;
 
@@ -687,10 +770,17 @@
         // --- Cyber Snake Logic ---
         let snakeAnimId;
         let snakeKeydownHandler;
+        let snakeTouchStartHandler;
+        let snakeTouchEndHandler;
         function stopSnake() {
             cancelAnimationFrame(snakeAnimId);
             if (snakeKeydownHandler) {
                 window.removeEventListener('keydown', snakeKeydownHandler);
+            }
+            const canvas = document.getElementById('snake-canvas');
+            if (canvas) {
+                if (snakeTouchStartHandler) canvas.removeEventListener('touchstart', snakeTouchStartHandler);
+                if (snakeTouchEndHandler) canvas.removeEventListener('touchend', snakeTouchEndHandler);
             }
         }
 
@@ -728,6 +818,33 @@
                 if (e.key === 'ArrowRight' && dx === 0) { dx = gridSize; dy = 0; }
             };
             window.addEventListener('keydown', snakeKeydownHandler);
+
+            let touchStartX = 0;
+            let touchStartY = 0;
+            snakeTouchStartHandler = (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+                e.preventDefault();
+            };
+            snakeTouchEndHandler = (e) => {
+                let touchEndX = e.changedTouches[0].screenX;
+                let touchEndY = e.changedTouches[0].screenY;
+                let diffX = touchEndX - touchStartX;
+                let diffY = touchEndY - touchStartY;
+                
+                if (Math.abs(diffX) > 20 || Math.abs(diffY) > 20) {
+                    if (Math.abs(diffX) > Math.abs(diffY)) {
+                        if (diffX > 0 && dx === 0) { dx = gridSize; dy = 0; } 
+                        else if (diffX < 0 && dx === 0) { dx = -gridSize; dy = 0; } 
+                    } else {
+                        if (diffY > 0 && dy === 0) { dx = 0; dy = gridSize; } 
+                        else if (diffY < 0 && dy === 0) { dx = 0; dy = -gridSize; } 
+                    }
+                }
+                e.preventDefault();
+            };
+            canvas.addEventListener('touchstart', snakeTouchStartHandler, {passive: false});
+            canvas.addEventListener('touchend', snakeTouchEndHandler, {passive: false});
 
             function loop(currentTime) {
                 snakeAnimId = requestAnimationFrame(loop);
@@ -811,6 +928,109 @@
                 rpsScore.ai++;
                 document.getElementById('rps-score-ai').innerText = rpsScore.ai;
             }
+        }
+
+        // --- Balloon Pop Logic ---
+        let balloonAnimId;
+        let balloonTimerId;
+        function stopBalloon() {
+            cancelAnimationFrame(balloonAnimId);
+            clearInterval(balloonTimerId);
+        }
+
+        function resetBalloon() {
+            stopBalloon();
+            document.getElementById('balloon-gameover').style.display = 'none';
+            const canvas = document.getElementById('balloon-canvas');
+            const ctx = canvas.getContext('2d');
+            const scoreEl = document.getElementById('balloon-score');
+            const timeEl = document.getElementById('balloon-time');
+            
+            let gameOver = false;
+            let score = 0;
+            let timeLeft = 30;
+            scoreEl.innerText = score;
+            timeEl.innerText = timeLeft;
+
+            let balloons = [];
+            let frameCount = 0;
+
+            const spawnBalloon = () => {
+                const colors = ['#ec4899', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6'];
+                balloons.push({
+                    x: Math.random() * (canvas.width - 40) + 20,
+                    y: canvas.height + 20,
+                    radius: Math.random() * 10 + 15,
+                    speed: Math.random() * 2 + 1,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            };
+
+            const popBalloon = (e) => {
+                if(gameOver) return;
+                const rect = canvas.getBoundingClientRect();
+                const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+                const y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+
+                for(let i = balloons.length - 1; i >= 0; i--) {
+                    let b = balloons[i];
+                    const dist = Math.hypot(b.x - x, b.y - y);
+                    if(dist <= b.radius + 15) { // Slight padding for easier touch
+                        balloons.splice(i, 1);
+                        score += 5;
+                        scoreEl.innerText = score;
+                        break; 
+                    }
+                }
+            };
+
+            canvas.onmousedown = popBalloon;
+            canvas.ontouchstart = (e) => { popBalloon(e); e.preventDefault(); };
+
+            balloonTimerId = setInterval(() => {
+                if(!gameOver) {
+                    timeLeft--;
+                    timeEl.innerText = timeLeft;
+                    if(timeLeft <= 0) {
+                        gameOver = true;
+                        document.getElementById('balloon-gameover').style.display = 'flex';
+                    }
+                }
+            }, 1000);
+
+            function loop() {
+                if(gameOver) return;
+                balloonAnimId = requestAnimationFrame(loop);
+                frameCount++;
+
+                ctx.fillStyle = '#0f172a'; 
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                if(frameCount % 40 === 0) {
+                    spawnBalloon();
+                }
+
+                for(let i = balloons.length - 1; i >= 0; i--) {
+                    let b = balloons[i];
+                    b.y -= b.speed;
+                    
+                    ctx.fillStyle = b.color;
+                    ctx.beginPath();
+                    ctx.ellipse(b.x, b.y, b.radius, b.radius * 1.2, 0, 0, Math.PI*2);
+                    ctx.fill();
+                    
+                    ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+                    ctx.beginPath();
+                    ctx.moveTo(b.x, b.y + b.radius * 1.2);
+                    ctx.lineTo(b.x, b.y + b.radius * 1.2 + 20);
+                    ctx.stroke();
+
+                    if(b.y + b.radius * 1.2 + 20 < 0) {
+                        balloons.splice(i, 1);
+                    }
+                }
+            }
+            balloonAnimId = requestAnimationFrame(loop);
         }
 
         // Initialize Space Vibe by default after a brief delay so canvas sizing works
